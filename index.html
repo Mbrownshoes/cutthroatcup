@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+
+<meta charset="utf-8">
+<title>Cutthroat</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+<!-- <link rel="shortcut icon" href="/favicon.ico"> -->
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+ 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">  
+<!-- build:css(.tmp) styles/main.css -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+
+
+<!-- {{DOMAIN}}api/3/action/package_search?q=sub_org:"04215a2c-c0b4-4829-a082-bb9467f20e1c"-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- DataTables -->
+<script src="https://cdn.datatables.net/1.10.5/js/jquery.dataTables.min.js"></script>
+
+
+<script type="text/javascript">
+
+myob={}
+$(document).ready(function() {
+	 $.getJSON('player.json', function(data) {
+        // console.log(data)
+        myob=data
+// $(document).ready(function() {
+    $('#example').DataTable( {
+    	"order": [[ 9, "desc" ]],
+        data: data,
+        columns: [
+            { data: "Last Name" },
+            {data: "Pos"},
+            { data: "G",
+                    render: function(d) {
+                    	return d*25;
+                    } },
+            { data: "A",
+                    render: function(d) {
+                    	return d*25;
+                    }  },
+            { data: "PPP",
+                    render: function(d) {
+                    	return d*10;
+                    }   },
+            { data: "GWG",
+                    render: function(d) {
+                    	return d*20;
+                    }   },
+            { data: "Sh",
+                    render: function(d) {
+                    	return d*2;
+                    }   },
+            { data: "HitF",
+                    render: function(d) {
+                    	return d*2;
+                    }   },
+            { data: "BkS",
+                    render: function(d) {
+                    	return d*2;
+                    }   },
+            { data: "Total",
+	            render: function(d) {
+	            	return d*1;
+                    }   },
+        ]
+    } );
+// } );
+	});
+	})
+// plr = []
+
+// $(document).ready(function() {
+//     $.ajax({
+//         type: "GET",
+//         url: "player.txt",
+//         dataType: "text",
+//         success: function(data) {
+//         	plr=data
+// }
+//      });
+// });
+
+</script>
+
+<body>
+<div class="container">
+
+<div class="header">
+          <!-- <ul class="nav nav-pills pull-right">
+            <li class="active"><a href="#">PackageSearch</a></li>
+            <li><a href="#">DataStore</a></li>
+            <li><a href="#">PackageShow</a></li>
+        </ul> -->
+        <h3 class="text-muted">Cutthroat Cup</h3>
+    </div>
+
+    <div class="row marketing">
+      <div class="col-lg-6">
+        <h3>Players ranked based on 2014-2015 regular season</h3>
+        <!-- <p>Powered by CKAN the BC Data Catalogue has a rich API that allows ... </p> -->
+    </div>
+</div>
+
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>All Players - Excluding Goaltenders</h4>
+   <!--  <p>The table below is taken live from the BC Data Catalogue content. </p> -->
+</div>
+
+<div class="col-md-6">
+  <table class="table table-striped" id="example">
+<!-- <table id="example" class="display" cellspacing="0" width="100%"> -->
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Goals</th>
+                <th>Assists</th>
+                <th>PPP</th>
+                <th>GWG</th>
+                <th>Shots</th>
+                <th>Hits</th>
+                <th>Blocks</th>
+                <th>Total Points</th>
+            </tr>
+        </thead>
+</div>
+</div>
