@@ -28,7 +28,7 @@ $(document).ready(function() {
         myob=data
 // $(document).ready(function() {
     $('#example').DataTable( {
-    	"order": [[ 9, "desc" ]],
+    	"order": [[ 10, "desc" ]],
         data: data,
         columns: [
             { data: "Last Name" },
@@ -46,6 +46,10 @@ $(document).ready(function() {
                     	return d*10;
                     }   },
             { data: "GWG",
+                    render: function(d) {
+                    	return d*20;
+                    }   },
+            { data: "SHP",
                     render: function(d) {
                     	return d*20;
                     }   },
@@ -94,23 +98,25 @@ $(document).ready(function() {
             <li><a href="#">DataStore</a></li>
             <li><a href="#">PackageShow</a></li>
         </ul> -->
+      <div class="col-md-8">
         <h1 class="text-muted">Cutthroat Cup</h1>
     </div>
+</div>
 
     <div class="row marketing">
-      <div class="col-lg-6">
+      <div class="col-md-6">
         <h3>Players ranked based on 2014-2015 regular season</h3>
         <!-- <p>Powered by CKAN the BC Data Catalogue has a rich API that allows ... </p> -->
     </div>
 </div>
 
 <div class="row marketing">
-  <div class="col-lg-6">
+  <div class="col-md-8">
     <h4>All Players - Excluding Goaltenders</h4>
    <!--  <p>The table below is taken live from the BC Data Catalogue content. </p> -->
-</div>
+	</div>
 
-<div class="col-md-6">
+<div class="col-md-8">
   <table class="table table-striped" id="example">
 <!-- <table id="example" class="display" cellspacing="0" width="100%"> -->
         <thead>
@@ -121,11 +127,13 @@ $(document).ready(function() {
                 <th>Assists</th>
                 <th>PPP</th>
                 <th>GWG</th>
+                <th>SHP</th>
                 <th>Shots</th>
                 <th>Hits</th>
                 <th>Blocks</th>
                 <th>Total Points</th>
             </tr>
         </thead>
+</div>
 </div>
 </div>
